@@ -12,8 +12,6 @@ import FooterContainer from '../components/Footer'
 import LocalStore from '../util/localStore'
 import { CITYNAME } from '../config/localStorekey'
 
-/*//本地缓存配置
-import Bundle from './bundls' */
 
 import CityContainer from '../containers/City'
 import SearchContainer from '../containers/Search'
@@ -44,9 +42,9 @@ class RouteMap extends Component{
                             <Route exact 
                                 path="/city"  component={CityContainer} cityName={this.state.cityName}/>
                             <Route 
-                                path="/search/:category"  component={SearchContainer}/>
+                                path="/search"  component={SearchContainer}/>
                             <Route 
-                                path="/detail/:id" component={DetailContainer}/>
+                                path="/detail" component={DetailContainer}/>
                             <Route path="/user" component={UserContainer}/>
                             <Route component={NotFoundContainer}  />
                         </Switch>

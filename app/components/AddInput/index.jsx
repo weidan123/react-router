@@ -11,7 +11,7 @@ class AddInput extends Component {
     render() {
         return (
             <div id="add_input">
-                <input type="text" placeholder="添加用户" onKeyUp={this.props.keyupHandler} value={this.state.value}/>
+                <input type="text" placeholder="添加用户" onKeyUp={this.props.keyupHandler} value={this.props.value}/>
             </div>
         )
     }

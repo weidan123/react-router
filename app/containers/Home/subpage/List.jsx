@@ -13,9 +13,7 @@ class List extends Component{
 	  super(props);
 	  this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	  this.state = {
-	  	hasMore:false,
 	  	data:[],
-	  	isLoadingMore:false,
 	  	page:0
 	  }
 	}
@@ -28,11 +26,6 @@ class List extends Component{
 						? <HomeList data={this.state.data}/>
 						: <div>{/*加载中*/}</div>
 					}
-					{
-						this.state.hasMore
-						? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
-						: ''
-					}
 				</div>
 			)
 	}
@@ -43,13 +36,9 @@ class List extends Component{
 	}
 
 	loadMoreData(){
-		//记录状态
-		this.setState({
-			isLoadingMore:true
-		})
 		
 
-		const cityName = this.props.cityName
+		const cityName = LocalStore.getItem(CITYNAME)
 		const page = this.state.page
 		const result = getListData(cityName,page)
 		this.resultHandle(result)
@@ -66,8 +55,6 @@ class List extends Component{
 			if(res.ok){
 				return res.json()				
 			}else{
-				console.log("当前城市："+this.props.cityName);
-				console.log("当前页码："+this.state.page);
 				return ListData;
 			}
 		}).then(json=>{
@@ -75,8 +62,7 @@ class List extends Component{
 			const hasMore = json.hasMore;
 			this.setState({
 				hasMore:hasMore,
-				data:this.state.data.concat(data),
-				isLoadingMore:false
+				data:this.state.data.concat(data)
 			})
 
 		}).catch(err=>{

@@ -19,6 +19,9 @@ class HomeList extends Component{
 				</div>
 			)
 	}
+	componentDidMount(){
+        console.log(this.props.data)
+    }
 }
 
 export default HomeList

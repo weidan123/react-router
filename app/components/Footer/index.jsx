@@ -11,8 +11,8 @@ class Footer extends Component {
         return (
             <div id="Footer">
                 <Link to="/">首页</Link>
-                <Link to="/Detail">详情</Link>
-                <Link to="/City">发现</Link>
+                <Link to="/detail">详情</Link>
+                <Link to="/search">发现</Link>
                 <Link to="/user">我的</Link>
             </div>
         )

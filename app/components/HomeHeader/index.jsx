@@ -15,7 +15,8 @@ class HomeHeader extends Component {
                     <i className="icon-angle-down"></i></Link>
                 </div>
                 <div className="float-right header-search_item">
-                    <i className="icon-user"></i>
+                    <Link to="/user">
+                    <i className="icon-user"></i></Link>
                 </div>
                 <SearchInput handler={this.handler.bind(this)}/>
             </div>
