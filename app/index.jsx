@@ -13,10 +13,8 @@ import './static/css/font.css'
 import RouteMap from './router/routeMap'
 
 render(
-    <Provider>
-        <HashRouter basename="/">
-            <RouteMap />
-        </HashRouter>
-    </Provider>
+    <HashRouter basename="/">
+        <RouteMap />
+    </HashRouter>
     ,document.body.appendChild(document.createElement('div'))
 )

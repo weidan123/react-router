@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import List from '../../components/List'
 import Header from '../../components/Header'
+import './style.less'
 class Search extends Component {
     constructor(props) {
       super(props);
@@ -12,15 +13,20 @@ class Search extends Component {
       }
     }
     render() {
+      var arr1 = this.state.data;
         return (
             <div id="Search">
                 <Header title="搜索"/>
-                <input type="text" placeholder="搜索用户" onKeyUp={this.keyupHandler.bind(this)} value={this.state.value} onChange={this.changeHandler.bind(this)}/>
-                <List data={this.state.data} clickDel={this.clickDel.bind(this)}></List>
+                <div className="search_con">
+                <input type="text" placeholder="添加用户" onKeyUp={this.keyupHandler.bind(this)} value={this.state.value} onChange={this.changeHandler.bind(this)} autoFocus/>
+                {arr1.map((i,index) =>(
+                  <div onClick={this.onDelete.bind(this,index)} key={index}>{i}<a>删除</a></div>
+                ))}
+              </div>
             </div>
         )
     }
-    clickDel(index) {
+    onDelete(index, e) {
       this.setState({
         data: this.state.data.filter((elem, i) => index !== i)
       })
