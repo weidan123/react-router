@@ -21,6 +21,7 @@ class Home extends Component {
         return (
             <div id="Home">
                 <HomeHeader cityName={this.state.cityName} history={this.props.history}/>
+                <p>111</p>
                 <Category/>
                 <Ad/>
             </div>
