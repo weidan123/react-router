@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
+import './style.less'
 const data1 = [
-    {"name":"小红"},{"name":"小名"},{"name":"小明"}
+    {"name":"小红","sex":"男"},{"name":"小名","sex":"女"},{"name":"小明","sex":"男"}
 ]
-class Home extends Component{
+class User extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -14,13 +14,12 @@ class Home extends Component{
     render() {
         let data = this.state.data;
         return (
-            <div>Home
+            <div id="user">
                 {
                     data.map(function(item,index){
-                        return <div key={index}>Hello, {item.name}!<button onClick={this.clickHandle.bind(this, index)}>删除</button></div>
+                        return <table key={index}><tbody><tr><td>{item.name}</td><td>{item.sex}</td><td><button onClick={this.clickHandle.bind(this, index)}>删除</button></td></tr></tbody></table>
                     },this)
                 }
-                <Link to="/city">city</Link>
                 
             </div>
         )
