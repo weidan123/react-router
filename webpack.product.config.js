@@ -21,10 +21,10 @@ var deleteFolder = function(path) {
         fs.rmdirSync(path);
     }
 };
-deleteFolder('../build/script/');
-deleteFolder('../build/style/');
-deleteFolder('../build/fonts/');
-deleteFolder('../build/images/');
+deleteFolder('./build/script/');
+deleteFolder('./build/style/');
+deleteFolder('./build/fonts/');
+deleteFolder('./build/images/');
 
 module.exports = {
   entry: {
@@ -43,10 +43,10 @@ module.exports = {
     ]
   },
   output: {
-    path:path.resolve(__dirname, '../build'),
+    path:path.resolve(__dirname, './build'),
     filename: "script/[name].[chunkhash:8].js",
     jsonpFunction:'Topthinking',
-    publicPath: "/dianping/",
+    //publicPath: "/dianping/",
     chunkFilename: "script/[name].[chunkhash:8].js"
   },
 
